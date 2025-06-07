@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/generate", async (req, res) => {
   const { topic, count } = req.body;
-  const API_KEY = process.env.API_KEY;
+  const API_KEY = process.env.GEMINI_API_KEY;
 
   if (!API_KEY) {
     return res.status(500).json({ error: "API key not set" });

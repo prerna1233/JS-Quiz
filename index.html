@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f8f1ff, #e5e0fa);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px 40px;
+      margin-top: 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5e4b8b;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #5e4b8b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #7c66c5;
+    }
+
+    .question-block {
+      background: #f5f4fb;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .question-block p {
+      margin: 0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz Generator</h1>
+
+    <label for="topic">Topic:</label>
+    <input id="topic" type="text" placeholder="e.g., HTML" />
+
+    <label for="count">Number of Questions:</label>
+    <input id="count" type="number" min="1" max="10" />
+
+    <button onclick="generateQuiz()">Generate Quiz</button>
+
+    <div id="quiz"></div>
+  </div>
+
+  <script src="./public/script.js"></script>
+</body>
+</html>

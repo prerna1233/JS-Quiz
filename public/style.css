@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+input {
+  padding: 10px;
+  margin: 5px;
+  width: 250px;
+}
+button {
+  padding: 10px 20px;
+  background-color: purple;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#quiz {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}

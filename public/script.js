@@ -13,7 +13,7 @@ async function generateQuiz() {
   quizDiv.innerHTML = "⏳ Generating quiz...";
 
   try {
-    const response = await fetch("https://js-quiz-1-kfch.onrender.com/generate", {
+    const response = await fetch("https://js-quiz-wm4u.onrender.com/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ topic, count }),

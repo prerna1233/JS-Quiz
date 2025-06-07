@@ -15,7 +15,8 @@ const __dirname = path.dirname(__filename);
 
 // CORS middleware: only once, allow frontend origin exactly
 app.use(cors({
-  origin: "http://127.0.0.1:5500",
+  // origin: "http://127.0.0.1:550",
+   origin: "*",
 }));
 
 app.use(express.json());

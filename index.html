@@ -77,9 +77,40 @@
       margin: 0;
       font-weight: 500;
     }
+
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255,255,255,0.7);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .loading-spinner {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .loading-text {
+      font-size: 1.2rem;
+      color: #5e4b8b;
+      font-weight: 700;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+      <svg width="64" height="64" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="#5e4b8b" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)"><animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/></circle></svg>
+    </div>
+    <div class="loading-text">Loading quiz questions...</div>
+  </div>
+
   <div class="container">
     <h1>Quiz Generator</h1>
 
@@ -95,5 +126,24 @@
   </div>
 
   <script src="./public/script.js"></script>
+  <script>
+    // Show/hide loading overlay
+    function showLoading() {
+      document.getElementById('loadingOverlay').style.display = 'flex';
+    }
+    function hideLoading() {
+      document.getElementById('loadingOverlay').style.display = 'none';
+    }
+    // Patch generateQuiz to show loader while loading
+    const origGenerateQuiz = window.generateQuiz;
+    window.generateQuiz = async function() {
+      showLoading();
+      try {
+        await origGenerateQuiz.apply(this, arguments);
+      } finally {
+        hideLoading();
+      }
+    }
+  </script>
 </body>
 </html>

@@ -39,7 +39,8 @@
     }
 
     input[type="text"],
-    input[type="number"] {
+    input[type="number"],
+    select {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid #ccc;
@@ -113,6 +114,13 @@
 
   <div class="container">
     <h1>Quiz Generator</h1>
+
+    <label for="questionType">Question Type:</label>
+    <select id="questionType">
+      <option value="mcq">MCQ (Coding/Concept)</option>
+      <option value="coding">Coding Only</option>
+      <option value="theory">Theory Only</option>
+    </select>
 
     <label for="topic">Topic:</label>
     <input id="topic" type="text" placeholder="e.g., HTML" />

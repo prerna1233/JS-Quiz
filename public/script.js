@@ -1,8 +1,7 @@
-
-
 async function generateQuiz() {
   const topic = document.getElementById("topic").value.trim();
   const count = document.getElementById("count").value.trim();
+  const questionType = document.getElementById("questionType").value;
   const quizDiv = document.getElementById("quiz");
 
   if (!topic || !count) {
@@ -16,7 +15,7 @@ async function generateQuiz() {
     const response = await fetch("https://js-quiz-x9yt.onrender.com/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic, count }),
+      body: JSON.stringify({ topic, count, questionType }),
     });
 
     const data = await response.json();
